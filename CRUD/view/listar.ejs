@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Usuários</title>
+</head>
+<body>
+    <p>Lista de Usuários</p>
+    <ul>
+        <% dados.forEach(function(dado) { %>
+            <li>ID: <%= dado.id %></li>
+            <li>Nome: <%= dado.nome %></li>
+            <li>Email: <%= dado.email %></li>
+            <li>Senha Hash: <%= dado.senha_hash %></li>
+        <% }); %>
+    </ul>
+  
+
+</body>
+</html> 
