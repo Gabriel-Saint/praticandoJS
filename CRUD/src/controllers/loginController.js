@@ -6,41 +6,42 @@ const bcrypt = require('bcrypt');
 
 
 const caminhoAbsoluto = path.resolve(__dirname, '../../view/login.html');
-function exibirLogin(req, res){
+const caminhoAbsolutoSucesso = path.resolve(__dirname, '../../view/sucesso.ejs');
+function exibirLogin(req, res) {
     res.sendFile(caminhoAbsoluto);
 }
 //função para processar o cadastro
-function fazerLogin(req, res){
-    
+function fazerLogin(req, res) {
+
 
     const email = req.body.email;
     const senha = req.body.senha;
 
+
     // sql
 
-    const pegaHashBD = 'SELECT senha_hash FROM usuarios WHERE email = ?';
-    db.all(pegaHashBD, [email], (erro, rows)=>{
-        if(erro){
-                console.error('Erro ao fazer login', erro);
-                res.status(500).send('Erro ao consultar usuário!');
-        }else{
-           
-            if(rows === 0){
+    const pegaHashBD = 'SELECT id, senha_hash FROM usuarios WHERE email = ?';
+    db.all(pegaHashBD, [email], (erro, rows) => {
+        if (erro) {
+            console.error('Erro ao fazer login', erro);
+            res.status(500).send('Erro ao consultar usuário!');
+        } else {
+            if (rows.length === 0) {
                 res.send('nenhum usuario encontrado com o email fornecido');
-            }else {
+            } else {
                 const hashDoBD = rows[0].senha_hash;
-                
-                bcrypt.compare(senha, hashDoBD, (erro, resultado)=> {
-                    if(resultado){
-                        res.send('você esta logado bem vindo!');
-                    } else{
-                        res.send('senha incorreta!');
+                const idDoBD = rows[0].id;
+                bcrypt.compare(senha, hashDoBD, (erro, resultado) => {
+                    if (resultado) {
+                        res.render(caminhoAbsolutoSucesso, {idDoBD});
+                    } else {
+                        console.error('erro:', erro);
+                        res.send('senha ou email incorreto!');
                     }
                 })
             }
-
         }
-})
+    })
 
 }
 

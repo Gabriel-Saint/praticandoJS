@@ -9,12 +9,12 @@ const dbPath = path.resolve(__dirname, '../usuariosBD.sqlite');// caminho absolu
 // query 
 const criarTabelaCliente = `
 CREATE TABLE IF NOT EXISTS usuarios (
-  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  nome VARCHAR(150) NOT NULL,
-  email VARCHAR(150) NOT NULL UNIQUE,
-  senha_hash VARCHAR(64) NOT NULL
-)
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome VARCHAR(150) NOT NULL,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    senha_hash VARCHAR(64) NOT NULL )
 `;
+const limpaID = `DELETE FROM sqlite_sequence WHERE name = 'usuarios';`
 
 db.run(criarTabelaCliente, (erro)=>{
     if(erro){
