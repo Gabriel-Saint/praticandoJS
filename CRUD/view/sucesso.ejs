@@ -9,7 +9,11 @@
     <p>Usuário  logado com sucesso!</p>
     <form action="editarCadastro" method="post">
         <input type="hidden" name="id" id="" value="<%= idDoBD %>">
-        <button type="submit">Atualizar Cadastro</button>
+        <button type="submit">Editar Cadastro</button>
+    </form> <br>
+    <form action="Excluir" method="post">
+        <input type="hidden" name="id" id="" value="<%= idDoBD %>">
+        <button type="submit">Excluir Cadastro</button>
     </form>
 </body>
 </html>

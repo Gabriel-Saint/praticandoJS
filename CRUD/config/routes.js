@@ -1,18 +1,28 @@
 const express =  require('express');
 const router = express.Router();
-const cadastroController = require('../src/controllers/cadastroController');
-const listarController = require('../src/controllers/listarController');
+
+const cadastroController = require('../src/controllers/cadastrarController');
 const loginController = require('../src/controllers/loginController');
-const editarController = require('../src/controllers/editarController');
 
-router.get('/cadastro', cadastroController.exibirFormulario);
-router.post('/cadastrar', cadastroController.processarCadastro);
+const loginModel = require('../src/models/loginModel')
+const cadastrarModel = require('../src/models/cadastrarModel');
+const editarModel = require('../src/models/editarModel');
+const listarModel = require('../src/models/listarModel');
 
-router.get('/listar', listarController.listar);
+router.get('/', loginController.exibirLogin);
 
 router.get('/login', loginController.exibirLogin);
-router.post('/RealizarLogin', loginController.fazerLogin);
+router.post('/login', loginModel.fazerLogin);
 
-router.post('/editarCadastro', editarController.listarPorId);
-router.post('/atualizarCadastro', editarController.atualizarCadastro);
+router.get('/cadastro', cadastroController.exibirFormulario);
+router.post('/cadastro', cadastrarModel.processarCadastro);
+
+router.get('/usuarios', listarModel.listar);
+
+
+router.post('/editarCadastro', editarModel.listarPorId);
+router.post('/atualizarCadastro', editarModel.atualizarCadastro);
+router.post('/excluir', editarModel.deletarCadastro);
+
+
 module.exports = router;
