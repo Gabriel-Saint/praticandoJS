@@ -11,6 +11,7 @@ const routes = require('./config/routes');
 
 app.use(express.static('view'));
 
+
 app.use('/', routes);
 
 app.listen(port, ()=> {
