@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const routes = require('./config/routes');
 
 app.use(express.static('view'));
-
+app.use(express.static('public/css'));
 
 app.use('/', routes);
 

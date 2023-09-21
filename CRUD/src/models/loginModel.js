@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 
 
 const caminhoAbsolutoSucesso = path.resolve(__dirname, '../../view/sucesso.ejs');
+const caminhoAbsolutoLogin = path.resolve(__dirname, '../../view/login.ejs');
 
 function fazerLogin(req, res) {
 
@@ -23,8 +24,11 @@ function fazerLogin(req, res) {
             console.error('Erro ao fazer login', erro);
             res.status(500).send('Erro ao consultar usuário!');
         } else {
+            let mensagemErro ='';
             if (rows.length === 0) {
-                res.send('nenhum usuario encontrado com o email fornecido');
+                mensagemErro ='Usuário não encontrado. Por favor, cadastre-se!';
+                //res.send('nenhum usuario encontrado com o email fornecido');
+                res.render(caminhoAbsolutoLogin, {mensagemErro})
             } else {
                 const hashDoBD = rows[0].senha_hash;
                 const idDoBD = rows[0].id;
@@ -34,7 +38,8 @@ function fazerLogin(req, res) {
                     if (resultado) {
                         res.render(caminhoAbsolutoSucesso, { idDoBD });
                     } else {
-                        res.send('senha ou email incorreto!');
+                        mensagemErro ='senha ou email incorreto!'
+                        res.render(caminhoAbsolutoLogin, {mensagemErro})
                     }
                 }).catch((erroBcrypt) => {
                     console.error('Erro ao comparar hashes', erroBcrypt);

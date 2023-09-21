@@ -3,10 +3,11 @@ const router = express.Router();
 const path = require('path');
 
 
-const caminhoAbsoluto = path.resolve(__dirname, '../../view/login.html');
+const caminhoAbsoluto = path.resolve(__dirname, '../../view/login.ejs');
 
 function exibirLogin(req, res) {
-    res.sendFile(caminhoAbsoluto);
+    let mensagemErro ='';
+    res.render(caminhoAbsoluto, {mensagemErro});
 }
 
 module.exports = {

@@ -26,7 +26,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
+    <!--<style>
         @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&display=swap');
 
 * {
@@ -146,8 +146,8 @@ a {
 input[type="checkbox"]{
    transform: translate(10px,0);
 }
-    </style>
-    <link rel="stylesheet" href="../public/css/style.css">
+    </style>-->
+    <link rel="stylesheet" href="http://localhost:3000/style.css">
     <title>Login</title>
 </head>
 
@@ -166,10 +166,11 @@ input[type="checkbox"]{
             <div class="form">
 
                 <h2>Fazer Login</h2>
-                <form action="login" method="post">
-                    <input type="email" name="email" id="" placeholder="Email" class="i1">
+                <p id="mensagemErro" style="color: red;"><%= mensagemErro %></p>
+                <form action="login" method="post" id="login-form">
+                    <input type="email" name="email" id="email" placeholder="Email" class="i1" required>
 
-                    <input type="password" name="senha" placeholder="Senha" class="i1">
+                    <input type="password" name="senha" id="senha" placeholder="Senha" class="i1" required>
 
                     <!-- <div class="helper">
                         <input type="checkbox" name="rmb">
