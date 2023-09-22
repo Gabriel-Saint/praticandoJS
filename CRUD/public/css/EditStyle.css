@@ -22,7 +22,6 @@ body {
     display: flex;
     padding: 50px;
     height: 500px;
-    
 
 
 
@@ -36,29 +35,26 @@ body {
     background-color: rgba(89, 23, 102, 0.788);
     padding: 30px;
     border-radius: 0 0 0 18px;
-    -webkit-box-shadow: 8px 6px 16px 1px rgba(0,0,0,0.88); 
-    box-shadow: 8px 6px 16px 1px rgba(0,0,0,0.88);
-   
 }
 
 .form {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 15px;
+    gap: 8px;
     background-color: white;
     width: 350px;
     padding: 30px;
-    border-radius: 0 18px 0 0;
-    -webkit-box-shadow: 8px 6px 16px 1px rgba(0,0,0,0.88); 
-box-shadow: 8px 6px 16px 1px rgba(0,0,0,0.88);
+    border-radius: 0 18px 0 18px;
+    -webkit-box-shadow: 4px 6px 16px 1px rgba(0,0,0,0.88); 
+    box-shadow: 4px 6px 16px 1px rgba(0,0,0,0.88);
 
 }
 
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 8px;
 }
 
 .p1 {

@@ -17,7 +17,7 @@ function fazerLogin(req, res) {
 
     // sql
 
-    const pegaHashBD = 'SELECT id, senha_hash FROM usuarios WHERE email = ?';
+    const pegaHashBD = 'SELECT nome,id, senha_hash FROM usuarios WHERE email = ?';
 
     db.all(pegaHashBD, [email], (erro, rows) => {
         if (erro) {
@@ -32,11 +32,12 @@ function fazerLogin(req, res) {
             } else {
                 const hashDoBD = rows[0].senha_hash;
                 const idDoBD = rows[0].id;
+                const nomeDoBD = rows[0].nome;
 
                 //agora usando promisse
                 bcrypt.compare(senha, hashDoBD).then((resultado) => {
                     if (resultado) {
-                        res.render(caminhoAbsolutoSucesso, { idDoBD });
+                        res.render(caminhoAbsolutoSucesso, { idDoBD, nomeDoBD });
                     } else {
                         mensagemErro ='senha ou email incorreto!'
                         res.render(caminhoAbsolutoLogin, {mensagemErro})

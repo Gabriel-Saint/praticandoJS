@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <link rel="stylesheet" href="http://localhost:3000/SucStyle.css">
+    <title>Home</title>
 </head>
 <body>
-    <p>Usuário  logado com sucesso!</p>
-    <form action="editarCadastro" method="post">
-        <input type="hidden" name="id" id="" value="<%= idDoBD %>">
-        <button type="submit">Editar Cadastro</button>
-    </form> <br>
-    <form action="Excluir" method="post">
-        <input type="hidden" name="id" id="" value="<%= idDoBD %>">
-        <button type="submit">Excluir Cadastro</button>
-    </form>
+    <div class="container">
+        <div class="aside">
+            <h1>Olá <%= nomeDoBD %>, seja bem vindo!</h1>
+            <form action="editarCadastro" method="post">
+                <input type="hidden" name="id" id="" value="<%= idDoBD %>">
+                <button type="submit">Editar Cadastro</button>
+            </form> 
+            <form action="Excluir" method="post">
+                <input type="hidden" name="id" id="" value="<%= idDoBD %>">
+                <button type="submit">Excluir Cadastro</button>
+            </form>
+            <button><a href="http://localhost:3000/usuarios">Lista de usuários</a></button>
+        </div>
+    </div>
 </body>
 </html>

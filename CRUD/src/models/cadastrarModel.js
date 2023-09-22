@@ -22,10 +22,8 @@ function processarCadastro(req, res){
                     console.error('Erro ao inserir dados no banco de dados', erro);
                     res.status(500).send('Erro ao cadastrar usuário!');
             }else{
-                     //res.redirect('/sucesso');
-                    console.log('Cadastro realizado com sucesso');
-                    res.send(`Olá ${nome}, seu cadastro foi realizado com suecesso e sua hash da senha é ${hash}!`);
-
+                     res.redirect('/usuarios');
+                   
             }
     })
     }).catch((erro)=>{

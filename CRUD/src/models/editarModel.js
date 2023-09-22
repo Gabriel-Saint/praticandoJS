@@ -26,7 +26,7 @@ function listarPorId(req, res) {
 
     } catch (erro) {
         console.error('Erro ao fazer consulta: ', erro);
-        res.status(500).send('Erro ao editar usuários');
+        res.status(500).send('Erro ao listar usuários');
     }
 }
 
@@ -45,7 +45,7 @@ function atualizarCadastro(req, res) {
             } else {
                 //res.redirect('/sucesso');
                 console.log('Cadastro Atualizado com sucesso com sucesso');
-                res.send(`Olá seu novo nome é ${novoNome}, e seu novo email é ${id}!`);
+                res.redirect('/usuarios');
 
             }
         })
@@ -68,7 +68,7 @@ function deletarCadastro(req, res) {
             } else {
                 
                 console.log('Cadastro deletado com sucesso com sucesso');
-                res.send(`Seu cadastro foi apagado com sucesso!`);
+                res.redirect('/usuarios');
 
             }
         })

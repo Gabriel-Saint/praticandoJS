@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://localhost:3000/EditStyle.css">
     <title>Editar Cadastro</title>
 </head>
 <body>
-    <form action="atualizarCadastro" method="post">
-        <input type="hidden" value="<%= dados.id %>" name="id">
-        <label for="novoNome">Novo Nome:</label>
-        <input type="text" name="novoNome" id=""  placeholder="<%= dados.nome %>">
-        <label for="novoNome">Novo Email:</label>
-        <input type="text" name="novoEmail" id="" placeholder="<%= dados.email %>">
-        <label for="novaSenha">Nova Senha:</label>
-        <input type="password" name="novaSenha" id="">
-        <button type="submit">Atualizar cadastro</button>
-
-    </form>
+    <div class="container">
+        <div class="content">
+            <div class="form">
+                <h2>Altere seu dados</h2>
+                <form action="atualizarCadastro" method="post">
+                    <input type="hidden" value="<%= dados.id %>" name="id">
+                    <label for="novoNome">Novo Nome:</label>
+                    <input type="text" name="novoNome" id=""  placeholder="<%= dados.nome %>">
+                    <label for="novoNome">Novo Email:</label>
+                    <input type="text" name="novoEmail" id="" placeholder="<%= dados.email %>">
+                    <label for="novaSenha">Nova Senha:</label>
+                    <input type="password" name="novaSenha" id="">
+                    <button type="submit">Atualizar cadastro</button>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
