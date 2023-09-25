@@ -17,6 +17,7 @@ function processarCadastro(req, res){
     // gerar uma hash com o bcrypt
 
     bcrypt.hash(senha, 10).then((hash)=>{
+        
         db.run(sql, [nome, email, hash], (erro)=>{
             if(erro){
                     console.error('Erro ao inserir dados no banco de dados', erro);

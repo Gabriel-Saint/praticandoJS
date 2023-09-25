@@ -9,16 +9,17 @@
 <body>
     <div class="container">
         <div class="aside">
-            <h1>Olá <%= nomeDoBD %>, seja bem vindo!</h1>
+            <h1>Olá <%= user.nome %>, seja bem vindo!</h1>
             <form action="editarCadastro" method="post">
-                <input type="hidden" name="id" id="" value="<%= idDoBD %>">
+                <input type="hidden" name="id" id="" value="<%= user.id %>">
                 <button type="submit">Editar Cadastro</button>
             </form> 
             <form action="Excluir" method="post">
-                <input type="hidden" name="id" id="" value="<%= idDoBD %>">
+                <input type="hidden" name="id" id="" value="<%= user.id %>">
                 <button type="submit">Excluir Cadastro</button>
             </form>
             <button><a href="http://localhost:3000/usuarios">Lista de usuários</a></button>
+            <button><a href="http://localhost:3000/logout">Encerrar Sessão</a></button>
         </div>
     </div>
 </body>
