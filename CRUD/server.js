@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const app = express();
 //const port = 3000;
 const session =  require('express-session');
-const helmet = require('helmet');
+// para produção const helmet = require('helmet');
 
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(helmet());
+//app.use(helmet());
 
 
 app.use(express.static('view'));
