@@ -11,19 +11,21 @@
         <div class="content">
             <div class="form">
                 <h2>Altere seu dados</h2>
-                <form action="atualizarCadastro" method="post">
+                <p id="mensagem2"></p>
+                <form action="atualizarCadastro" method="post" id="form">
                     <input type="hidden" value="<%= dados.id %>" name="id">
                     <label for="novoNome">Novo Nome :</label>
-                    <input type="text" name="novoNome" id=""  placeholder="<%= dados.nome %>">
+                    <input type="text" name="novoNome" id=""  placeholder="<%= dados.nome %>" required>
                     <label for="novoNome">Novo Email:</label>
-                    <input type="text" name="novoEmail" id="" placeholder="<%= dados.email %>">
+                    <input type="text" name="novoEmail" id="" placeholder="<%= dados.email %>" required>
                     <label for="novaSenha">Nova Senha:</label>
-                    <input type="password" name="novaSenha" id="">
+                    <input type="password" name="novaSenha" id="senha" required>
                     <button type="submit">Atualizar cadastro</button>
+                    <button><a href="http://localhost:3000/home">Voltar para home</a></button>
                 </form>
             </div>
         </div>
     </div>
-
+    <script src="http://localhost:3000/scriptEdit.js"></script>
 </body>
 </html>

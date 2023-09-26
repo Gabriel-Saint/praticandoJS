@@ -16,10 +16,18 @@
                         <li>ID: <%= dado.id %> <br>
                             Nome: <%= dado.nome %> <br>
                             Email: <%= dado.email %> <br>
-                           Senha Hash: <%= dado.senha_hash %></li>
+                           Senha Hash: <%= dado.senha_hash %> <br>
+                           <form action="Excluir" method="post">
+                            <input type="hidden" name="id" id="" value="<%= dado.id %>">
+                            <button type="submit">Excluir Cadastro</button>
+                        </form>
+                        </li>
                     <% }); %>
                 </ul>
-                <button><a href="http://localhost:3000/login">Voltar para login</a></button>
+                <div class="btns">
+                    <button><a href="http://localhost:3000/login">Voltar para login</a></button>
+                    <button><a href="http://localhost:3000/home">Voltar para home</a></button>
+                </div>
             </div>
         </div>
     </div>
