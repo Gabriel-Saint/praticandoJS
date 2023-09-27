@@ -32,9 +32,9 @@ router.get('/verificar-sessao', (req, res) => {
     res.send(user);
 });
 
-router.post('/editarCadastro', editarModel.listarPorId);
-router.post('/atualizarCadastro', editarModel.atualizarCadastro);
-router.post('/excluir', editarModel.deletarCadastro);
+router.post('/editarCadastro',autenticacaoMiddleware, editarModel.listarPorId);
+router.post('/atualizarCadastro',autenticacaoMiddleware, editarModel.atualizarCadastro);
+router.post('/excluir',autenticacaoMiddleware, editarModel.deletarCadastro);
 
 
 module.exports = router;
